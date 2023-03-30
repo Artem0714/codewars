@@ -2,10 +2,18 @@
 
 // Return as a number.
 
-function divCon(x){
-    let result = 0;
-    x.forEach((e) => {
-      typeof e === "string" ? result -= Number(e) : result += e
-    })
-    return result
+function divCon(arr){
+  let result = 0;
+  
+  arr.forEach((elem) => {
+    if (typeof elem === "string") {
+      result -= Number(elem) 
+    } else {
+      result += elem
+    }
+  });
+
+  return result
 }
+
+console.log(divCon([1, 2, 3, "4"])) // 2

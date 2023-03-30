@@ -22,10 +22,9 @@ function validParentheses(parenStr) {
         ')':'('
     }
       
-    for (let i = 0; i < (parenStr.length); i++) {
-        if (close(parenStr[i]) >= 0) {
-            if (valid[parenStr[i]] == stack.pop()) {
-            } else {
+    for (let i = 0; i < parenStr.length; i++) {
+        if (parenStr[i] === ')') {
+            if (!valid[parenStr[i]] == stack.pop()) {
                 return false
             }
         } else {
@@ -33,9 +32,10 @@ function validParentheses(parenStr) {
         }
     }
   
-    function close(x) {
-        return [')'].indexOf(x)
-    }
-  
     return stack.length === 0
 }
+
+
+console.log(validParentheses("((()))()")) //true
+
+console.log(validParentheses("((()))(")) //false
