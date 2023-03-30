@@ -18,23 +18,20 @@
 // Protip: If you are trying to figure out why a string of parentheses is invalid, paste the parentheses into the code editor, and let the code highlighting show you!
 
 
-function validParentheses(parenStr) {
-    let stack = [];
-    let valid = {
-        ')':'('
-    }
+function validParentheses(parentheses) {
+    let stack = 0;
       
-    for (let i = 0; i < parenStr.length; i++) {
-        if (parenStr[i] === ')') {
-            if (!valid[parenStr[i]] == stack.pop()) {
+    for (let i = 0; i < parentheses.length; i++) {
+        if (parentheses[i] === ')' ) {
+            if (--stack < 0) {
                 return false
             }
         } else {
-            stack.push(parenStr[i])
+            stack++
         }
     }
   
-    return stack.length === 0
+    return stack === 0
 }
 
 
